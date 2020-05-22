@@ -7,10 +7,12 @@
     "start": "node app/index.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^15.0.0",
-    "restify": "^8.5.1"
+    "restify": "^8.5.1",
+    "ws": "^7.3.0"
   },
   "devDependencies": {
     "babel": "^6.23.0"

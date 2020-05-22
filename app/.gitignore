@@ -1,0 +1,16 @@
+node_modules/
+dist/
+clients/node_modules/
+build/
+yarn-error.log
+release/
+.idea/
+.vs/
+.DS_Store
+dll/
+npm-debug.log
+coverage/
+storybook-static
+docs/diagrams/out/
+*.zip
+docs/diagrams/out/

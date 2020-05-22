@@ -1,14 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { QueryRenderer, graphql } from "react-relay";
+import environment from "./environment";
+
+const RootQuery = graphql`
+  query srcQuery {
+    ...App_count
+  }
+`;
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <QueryRenderer
+    environment={environment}
+    query={RootQuery}
+    render={({ error, props }) => {
+      if (error) {
+        return <div>{error.message}</div>;
+      } else if (props) {
+        console.log(props);
+        return <App />;
+      }
+      return <div>Loading</div>;
+    }}
+  />,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
